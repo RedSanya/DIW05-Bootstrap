@@ -1,160 +1,174 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Dashboard - Zengotitabengoa Pans</title>
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-
-    <style>
-        :root {
-            --color-primary: #e64c19;
-            --color-primary-dark: #c63f14;
-            --color-primary-soft: #fde4dc;
-            --color-sidebar: #1f1f1f;
-            --color-bg: #f8f9fa;
-            --color-border: #e9ecef;
-            --color-text-soft: #6c757d;
-            --color-white: #ffffff;
-        }
-
-        body {
-            background-color: var(--color-bg);
-        }
-
-        .text-primary-custom {
-            color: var(--color-primary) !important;
-        }
-
-        .bg-primary-custom {
-            background-color: var(--color-primary) !important;
-        }
-
-        .bg-primary-soft {
-            background-color: var(--color-primary-soft) !important;
-        }
-
-        .border-primary-custom {
-            border-color: var(--color-primary) !important;
-        }
-
-        .btn-primary-custom {
-            background-color: var(--color-primary);
-            border-color: var(--color-primary);
-            color: var(--color-white);
-        }
-
-        .btn-primary-custom:hover,
-        .btn-primary-custom:focus,
-        .btn-primary-custom:active {
-            background-color: var(--color-primary-dark) !important;
-            border-color: var(--color-primary-dark) !important;
-            color: var(--color-white) !important;
-        }
-
-        .btn-outline-primary-custom {
-            border-color: var(--color-primary);
-            color: var(--color-primary);
-        }
-
-        .btn-outline-primary-custom:hover,
-        .btn-outline-primary-custom:focus,
-        .btn-outline-primary-custom:active {
-            background-color: var(--color-primary);
-            border-color: var(--color-primary);
-            color: var(--color-white) !important;
-        }
-
-        .btn-outline-secondary {
-            color: var(--color-primary);
-            border-color: var(--color-primary);
-        }
-
-        .btn-outline-secondary:hover,
-        .btn-outline-secondary:focus,
-        .btn-outline-secondary:active {
-            background-color: var(--color-primary);
-            border-color: var(--color-primary);
-            color: var(--color-white) !important;
-        }
-
-        .sidebar-custom {
-            background-color: var(--color-sidebar);
-            min-height: 100vh;
-        }
-
-        .sidebar-custom .nav-link {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .sidebar-custom .nav-link:hover {
-            color: var(--color-white);
-            background-color: rgba(230, 76, 25, 0.15);
-        }
-
-        .sidebar-custom .nav-link.active {
-            background-color: var(--color-primary);
-            color: var(--color-white);
-        }
-
-        .card-stat {
-            border-left: 4px solid var(--color-primary);
-        }
-
-        .progress-bar-custom {
-            background-color: var(--color-primary);
-        }
-
-        .badge-price {
-            background-color: var(--color-primary);
-            color: var(--color-white);
-        }
-
-        .icon-box-custom {
-            background-color: var(--color-primary-soft);
-            color: var(--color-primary);
-        }
-
-        .table thead.table-dark-custom th {
-            background-color: var(--color-primary);
-            color: var(--color-white);
-            border-color: var(--color-sidebar);
-        }
-
-        .mobile-header {
-            background-color: var(--color-sidebar);
-        }
-
-        .offcanvas.offcanvas-custom {
-            background-color: var(--color-sidebar);
-            color: var(--color-white);
-        }
-
-        .offcanvas-custom .nav-link {
-            color: rgba(255, 255, 255, 0.7);
-        }
-
-        .offcanvas-custom .nav-link:hover {
-            color: var(--color-white);
-            background-color: rgba(230, 76, 25, 0.15);
-        }
-
-        .offcanvas-custom .nav-link.active {
-            background-color: var(--color-primary);
-            color: var(--color-white);
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard - Zengotitabengoa Pans</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <style>
+    :root{--orange:#f05a22;--orange-dark:#dc4f16;--sidebar:#1f1f1f;--bg:#f4f5f7;--border:#dddfe3;--text-soft:#7a808a;--shadow:0 1px 2px rgba(0,0,0,.06),0 6px 18px rgba(0,0,0,.05)}
+    *{box-sizing:border-box}
+    body{background:var(--bg);font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+    .sidebar{width:260px;min-height:100vh;background:var(--sidebar);color:#fff;position:sticky;top:0}
+    .brand{padding:18px 18px 14px;border-bottom:1px solid rgba(255,255,255,.08)}
+    .brand h1{font-size:1.05rem;line-height:1.1;margin:0;font-weight:700}
+    .brand small{color:var(--orange);text-transform:uppercase;font-size:.72rem;letter-spacing:.02em}
+    .nav-link{color:rgba(255,255,255,.72);border-left:4px solid transparent;border-radius:0;padding:14px 18px}
+    .nav-link i{width:20px}
+    .nav-link:hover,.nav-link.active{color:#fff;background:rgba(240,90,34,.12);border-left-color:var(--orange)}
+    .nav-link.active{background:var(--orange)}
+    .content{flex:1;padding:18px 18px 24px}
+    .topbar h2{font-size:2rem;font-weight:700;margin:0}
+    .topbar p{color:var(--text-soft);margin:2px 0 0}
+    .btn-orange{background:var(--orange);border-color:var(--orange);color:#fff}
+    .btn-orange:hover{background:var(--orange-dark);border-color:var(--orange-dark);color:#fff}
+    .btn-outline-orange{border-color:var(--orange);color:var(--orange);background:#fff}
+    .btn-outline-orange:hover{background:var(--orange);color:#fff}
+    .card{border:1px solid var(--border);box-shadow:var(--shadow);border-radius:6px}
+    .kpi{border-left:4px solid var(--orange);min-height:86px}
+    .kpi .label{font-size:.78rem;color:#8a8f98;text-transform:uppercase}
+    .kpi .value{font-size:1.8rem;font-weight:700;line-height:1}
+    .kpi .delta{font-size:.85rem;color:#4c8f69}
+    .panel-title{font-size:1rem;font-weight:700;color:#31343a}
+    .section-head{border-bottom:1px solid #e8eaee;padding:10px 12px;background:#fff;border-radius:6px 6px 0 0}
+    .section-body{padding:12px}
+    .progress{height:10px;background:#e9edf2}
+    .progress-bar{background:var(--orange);border-radius:999px}
+    .progress-row{margin-bottom:18px}
+    .progress-row:last-child{margin-bottom:0}
+    .table thead th{background:var(--orange);color:#fff;border-color:var(--orange);font-weight:700;font-size:.9rem}
+    .badge-status{font-size:.75rem;font-weight:700;padding:.35rem .55rem;border-radius:999px;color:#fff}
+    .status-green{background:#2f9d63}
+    .status-yellow{background:#f2c21d;color:#1f1f1f}
+    .status-blue{background:#1fb2d4}
+    .product-item{display:flex;align-items:center;gap:12px;padding:10px 0;border-bottom:1px solid #eceef2}
+    .product-item:last-child{border-bottom:0}
+    .thumb{width:42px;height:42px;border:1px solid #e2e5ea;border-radius:6px;display:grid;place-items:center;background:#fff;overflow:hidden}
+    .thumb img{width:100%;height:100%;object-fit:cover}
+    .price-tag{background:var(--orange);color:#fff;font-weight:700;font-size:.75rem;border-radius:6px;padding:.25rem .45rem;white-space:nowrap}
+    .muted{color:var(--text-soft)}
+    @media (max-width:991.98px){.sidebar{width:100%;min-height:auto;position:relative}.content{padding:14px}.topbar h2{font-size:1.6rem}}
+  </style>
 </head>
-
 <body>
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <div class="d-flex flex-column flex-lg-row">
+    <aside class="sidebar d-none d-lg-flex flex-column">
+      <div class="brand">
+        <h1>Zengotitabengoa<br>Pans</h1>
+        <small>DASHBOARD</small>
+      </div>
+      <nav class="nav flex-column py-2">
+        <a class="nav-link active" href="#"><i class="bi bi-speedometer2"></i> Dashboard</a>
+        <a class="nav-link" href="#"><i class="bi bi-box-seam"></i> Productos</a>
+        <a class="nav-link" href="#"><i class="bi bi-cart3"></i> Pedidos</a>
+        <a class="nav-link" href="#"><i class="bi bi-people"></i> Clientes</a>
+        <a class="nav-link" href="#"><i class="bi bi-graph-up"></i> Estadísticas</a>
+        <a class="nav-link" href="#"><i class="bi bi-tags"></i> Categorías</a>
+      </nav>
+      <div class="mt-auto border-top border-white border-opacity-10 py-2">
+        <a class="nav-link" href="#"><i class="bi bi-shop"></i> Ir a la tienda</a>
+        <a class="nav-link" href="#"><i class="bi bi-gear"></i> Configuración</a>
+      </div>
+    </aside>
+    <main class="content">
+      <div class="topbar d-flex justify-content-between align-items-start flex-wrap gap-3 mb-3">
+        <div>
+          <h2>Dashboard</h2>
+          <p>Bienvenido al panel de control de Zengotitabengoa Pans</p>
+        </div>
+        <div class="d-flex gap-2 flex-wrap">
+          <button class="btn btn-outline-orange btn-sm"><i class="bi bi-calendar3 me-1"></i>Esta semana</button>
+          <button class="btn btn-outline-orange btn-sm">Exportar</button>
+          <button class="btn btn-orange btn-sm"><i class="bi bi-plus-lg me-1"></i>Nuevo producto</button>
+        </div>
+      </div>
+      <div class="row g-3 mb-3">
+        <div class="col-12 col-md-6 col-xl-3"><div class="card kpi p-3"><div class="label">Ventas totales</div><div class="value">€24,580</div><div class="delta">↑ +12.5% vs mes anterior</div></div></div>
+        <div class="col-12 col-md-6 col-xl-3"><div class="card kpi p-3"><div class="label">Pedidos</div><div class="value">156</div><div class="delta">↑ +8.2% vs mes anterior</div></div></div>
+        <div class="col-12 col-md-6 col-xl-3"><div class="card kpi p-3"><div class="label">Productos</div><div class="value">8</div><div class="delta muted">4 categorías activas</div></div></div>
+        <div class="col-12 col-md-6 col-xl-3"><div class="card kpi p-3"><div class="label">Clientes</div><div class="value">1,245</div><div class="delta">↑ +24 nuevos esta semana</div></div></div>
+      </div>
+      <div class="row g-3 mb-3">
+        <div class="col-12 col-xl-8">
+          <div class="card h-100">
+            <div class="section-head d-flex justify-content-between align-items-center">
+              <div class="panel-title">Resumen semanal de ventas</div>
+              <div class="btn-group btn-group-sm">
+                <button class="btn btn-secondary active">Semana</button>
+                <button class="btn btn-outline-secondary">Mes</button>
+                <button class="btn btn-outline-secondary">Año</button>
+              </div>
+            </div>
+            <div class="section-body">
+              <div class="progress-row"><div class="d-flex justify-content-between mb-1"><span>Lunes</span><span class="muted">25%</span></div><div class="progress"><div class="progress-bar" style="width:25%"></div></div></div>
+              <div class="progress-row"><div class="d-flex justify-content-between mb-1"><span>Martes</span><span class="muted">50%</span></div><div class="progress"><div class="progress-bar" style="width:50%"></div></div></div>
+              <div class="progress-row"><div class="d-flex justify-content-between mb-1"><span>Miércoles</span><span class="muted">25%</span></div><div class="progress"><div class="progress-bar" style="width:25%"></div></div></div>
+              <div class="progress-row"><div class="d-flex justify-content-between mb-1"><span>Jueves</span><span class="muted">75%</span></div><div class="progress"><div class="progress-bar" style="width:75%"></div></div></div>
+              <div class="progress-row"><div class="d-flex justify-content-between mb-1"><span>Viernes</span><span class="muted">50%</span></div><div class="progress"><div class="progress-bar" style="width:50%"></div></div></div>
+              <div class="progress-row"><div class="d-flex justify-content-between mb-1"><span>Sábado</span><span class="muted">100%</span></div><div class="progress"><div class="progress-bar" style="width:100%"></div></div></div>
+              <div class="progress-row mb-0"><div class="d-flex justify-content-between mb-1"><span>Domingo</span><span class="muted">25%</span></div><div class="progress"><div class="progress-bar" style="width:25%"></div></div></div>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-xl-4">
+          <div class="card h-100">
+            <div class="section-head"><div class="panel-title">Ventas por categoría</div></div>
+            <div class="section-body">
+              <div class="progress-row"><div class="d-flex justify-content-between mb-1"><span>Antiadherentes</span><span class="muted">50%</span></div><div class="progress"><div class="progress-bar" style="width:50%"></div></div></div>
+              <div class="progress-row"><div class="d-flex justify-content-between mb-1"><span>Acero inoxidable</span><span class="muted">25%</span></div><div class="progress"><div class="progress-bar" style="width:25%"></div></div></div>
+              <div class="progress-row"><div class="d-flex justify-content-between mb-1"><span>Hierro fundido</span><span class="muted">25%</span></div><div class="progress"><div class="progress-bar" style="width:25%"></div></div></div>
+              <div class="progress-row mb-0"><div class="d-flex justify-content-between mb-1"><span>Wok</span><span class="muted">25%</span></div><div class="progress"><div class="progress-bar" style="width:25%"></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row g-3">
+        <div class="col-12 col-xl-8">
+          <div class="card h-100">
+            <div class="section-head d-flex justify-content-between align-items-center">
+              <div class="panel-title">Pedidos recientes</div>
+              <button class="btn btn-outline-orange btn-sm">Ver todos</button>
+            </div>
+            <div class="table-responsive">
+              <table class="table table-hover mb-0 align-middle">
+                <thead><tr><th>ID Pedido</th><th>Cliente</th><th>Producto</th><th>Total</th><th>Estado</th><th>Fecha</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>#ORD-2156</strong></td><td>María García</td><td>Sartén Antiadherente Pro</td><td>€45.90</td><td><span class="badge-status status-green">Entregado</span></td><td class="muted">18 Mar 2026</td></tr>
+                  <tr><td><strong>#ORD-2155</strong></td><td>Juan Martínez</td><td>Wok Profesional 30cm</td><td>€89.00</td><td><span class="badge-status status-yellow">En camino</span></td><td class="muted">17 Mar 2026</td></tr>
+                  <tr><td><strong>#ORD-2154</strong></td><td>Ana López</td><td>Sartén Acero Inox 28cm</td><td>€129.00</td><td><span class="badge-status status-blue">Preparando</span></td><td class="muted">17 Mar 2026</td></tr>
+                  <tr><td><strong>#ORD-2153</strong></td><td>Carlos Ruiz</td><td>Set Sartenes Titanium</td><td>€199.00</td><td><span class="badge-status status-green">Entregado</span></td><td class="muted">16 Mar 2026</td></tr>
+                  <tr><td><strong>#ORD-2152</strong></td><td>Laura Fernández</td><td>Sartén Hierro Fundido</td><td>€78.00</td><td><span class="badge-status status-green">Entregado</span></td><td class="muted">15 Mar 2026</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-xl-4">
+          <div class="card h-100">
+            <div class="section-head"><div class="panel-title">Productos más vendidos</div></div>
+            <div class="section-body">
+              <div class="product-item">
+                <div class="thumb"><img alt="Sartén Antiadherente" src="https://picsum.photos/seed/pan1/80/80" width="42" height="42" loading="lazy"></div>
+                <div class="flex-grow-1"><div class="fw-semibold">Antiadherente Pro</div><div class="muted small">56 ventas</div></div>
+                <span class="price-tag">€45.90</span>
+              </div>
+              <div class="product-item">
+                <div class="thumb"><img alt="Sartén Acero" src="https://picsum.photos/seed/pan2/80/80" width="42" height="42" loading="lazy"></div>
+                <div class="flex-grow-1"><div class="fw-semibold">Acero Inox 28cm</div><div class="muted small">42 ventas</div></div>
+                <span class="price-tag">€129.00</span>
+              </div>
+              <div class="product-item">
+                <div class="thumb"><img alt="Wok" src="https://picsum.photos/seed/pan3/80/80" width="42" height="42" loading="lazy"></div>
+                <div class="flex-grow-1"><div class="fw-semibold">Wok Profesional</div><div class="muted small">38 ventas</div></div>
+                <span class="price-tag">€89.00</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
